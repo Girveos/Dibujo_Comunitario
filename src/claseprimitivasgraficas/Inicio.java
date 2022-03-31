@@ -26,6 +26,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         //segundaFranja(this.dimension);
         //tercera_franja(this.dimension);
+        //primeraFranja();
         /*this.lienzo1.setSize(700,1000);
         Cuadrado C1 = new Cuadrado(10, 10, Color.black, Color.red, 90);
         this.lienzo1.getFiguras().add(C1);
@@ -89,6 +90,30 @@ public class Inicio extends javax.swing.JFrame {
     public void pintarRecuadroNegro(int posicion_altura,int posicion_largo,int dimension){
         Cuadrado cuadrado1= new Cuadrado(posicion_altura,posicion_largo, null, Color.black, dimension);
         this.lienzo1.getFiguras().add(cuadrado1); 
+    }
+    
+    public void primeraFranja(){
+        int lado = 20;
+        int []dibujo ={0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,2,2,2,2,0,0,1,1,0,0,0,0,0,1,0,0,2,2,2,2,0,0,0,0,1,0,0,0,1,0,0,2,2,2,2,2,2,0,0,0,0,1,0,0,1,0,2,2,0,0,0,0,2,2,0,0,0,1,0};
+        int k = 0;
+        for (int i = 0; i < 100; i=i+lado) {
+            for (int j = 0; j < 320; j=j+lado) {
+                if (dibujo[k] == 0){
+                    Cuadrado cuadrado = new Cuadrado(j, i, Color.MAGENTA, Color.WHITE, lado);
+                    this.lienzo1.getFiguras().add(cuadrado);
+                }else if (dibujo[k] == 1){
+                    Cuadrado cuadrado = new Cuadrado(j, i, Color.MAGENTA, Color.BLACK, lado);
+                    this.lienzo1.getFiguras().add(cuadrado);
+                }else if (dibujo[k] == 2){
+                    Cuadrado cuadrado = new Cuadrado(j, i, Color.MAGENTA, Color.GREEN, lado);
+                    this.lienzo1.getFiguras().add(cuadrado);
+                }else {
+                    Cuadrado cuadrado = new Cuadrado(j, i, Color.MAGENTA, Color.PINK, lado);
+                    this.lienzo1.getFiguras().add(cuadrado);
+                }
+                k++;
+            }
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
